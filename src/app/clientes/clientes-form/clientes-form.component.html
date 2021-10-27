@@ -3,18 +3,18 @@
     <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 <div class="container">
-    <form>
+    <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>ID: </label>
-                    <input type="text" class="form-control" disabled="true" />
+                    <input type="text" class="form-control" [ngModel]="cliente.id" name="id" disabled="true" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Data de Cadastro: </label>
-                    <input type="text" class="form-control" disabled="true"/>
+                    <input type="text" class="form-control" [ngModel]="cliente.dataCadastro" name="dataCadastro" disabled="true"/>
                 </div>
 
             </div>
@@ -23,13 +23,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Nome: *</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>CPF: *</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf" />
                 </div>
             </div>
         </div>
