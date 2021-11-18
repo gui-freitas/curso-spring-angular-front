@@ -55,4 +55,16 @@ export class AuthService {
     }
     return null;
   }
+
+  encerrarSessao(){
+    localStorage.removeItem('access_token');
+  }
+
+  getUsuarioAutenticado(){
+    const token = this.obterToken();
+    if(token){
+      return this.jwtHelper.decodeToken(token).user_name;
+    }
+    return null;
+  }
 }
